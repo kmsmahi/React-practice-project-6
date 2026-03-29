@@ -1,34 +1,53 @@
 import React from 'react';
+import { Check } from 'lucide-react'; // Using Lucide for a cleaner look
 
-const PricingCard = ({item}) => {
-    // console.log(item);
-    return (
-       
-            
-    <div className="card w-96 bg-base-100 shadow-sm border border-gray-200">
-    <div className="card-body">
-    <span className="badge badge-xs badge-warning">Most Popular</span>
-    <div className="flex justify-between">
-      <h2 className="text-3xl font-bold">{item.tier}</h2>
-      <span className="text-xl">${item.price_monthly}/{item.billing_cycle}</span>
-    </div>
-    <ul className="mt-6 flex flex-col gap-2 text-xs">
-      <li>
-        {
-            item.features.map((feature,index)=><p key={index}>
-            <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-            {feature}</p>)
-        }
-      </li>
+const PricingCard = ({ item }) => {
+  const isPopular = item.is_popular;
+
+  return (
+    <div className={`relative flex flex-col w-full bg-white border transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 ${
+      isPopular ? 'border-gray-900 ring-1 ring-gray-900' : 'border-gray-200'
+    }`}>
       
-    </ul>
-    <div className="mt-6">
-      <button className="btn btn-primary btn-block">Subscribe</button>
+      {/* Popular Badge */}
+      {isPopular && (
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-900 text-white text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1">
+          Most Popular
+        </div>
+      )}
+
+      <div className="p-8 flex-grow">
+        <header className="text-center mb-8">
+          <h2 className="text-xs font-black uppercase tracking-[0.3em] text-blue-600 mb-2">
+            {item.tier}
+          </h2>
+          <div className="flex items-baseline justify-center gap-1">
+            <span className="text-4xl font-black text-gray-900">${item.price_monthly}</span>
+            <span className="text-gray-400 text-sm font-medium uppercase tracking-tighter">/mo</span>
+          </div>
+        </header>
+
+        <ul className="space-y-4 mb-8">
+          {item.features.map((feature, index) => (
+            <li key={index} className="flex items-start gap-3 text-sm text-gray-600">
+              <Check size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
+              <span className="leading-tight">{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="p-8 pt-0 mt-auto">
+        <button className={`w-full py-4 text-xs font-black uppercase tracking-widest transition-all duration-300 ${
+          isPopular 
+          ? 'bg-gray-900 text-white hover:bg-blue-600' 
+          : 'bg-white text-gray-900 border border-gray-900 hover:bg-gray-900 hover:text-white'
+        }`}>
+          Select Plan
+        </button>
+      </div>
     </div>
-  </div>
-</div>
-        
-    );
+  );
 };
 
 export default PricingCard;
