@@ -1,0 +1,54 @@
+{
+  "gym_center_pricing": [
+    {
+      "id": "plan_starter",
+      "tier": "Starter",
+      "price_monthly": 29,
+      "currency": "USD",
+      "description": "Essential access for fitness beginners.",
+      "features": [
+        "Full access to gym floor & cardio zone",
+        "Basic locker room & shower access",
+        "1x Complimentary fitness assessment",
+        "Mobile app for workout tracking",
+        "No long-term contract"
+      ],
+      "is_popular": false,
+      "cta_text": "Start Training"
+    },
+    {
+      "id": "plan_elite",
+      "tier": "Elite Performance",
+      "price_monthly": 59,
+      "currency": "USD",
+      "description": "Our most popular plan for dedicated athletes.",
+      "features": [
+        "Everything in Starter plan",
+        "Unlimited group functional classes",
+        "24/7 Keycard access",
+        "Access to Sauna & Steam rooms",
+        "2x Guest passes per month",
+        "10% Discount on pro-shop supplements"
+      ],
+      "is_popular": true,
+      "cta_text": "Go Elite"
+    },
+    {
+      "id": "plan_pro",
+      "tier": "Pro Athlete",
+      "price_monthly": 99,
+      "currency": "USD",
+      "description": "The ultimate high-performance experience.",
+      "features": [
+        "Everything in Elite plan",
+        "2x Personal Training sessions per month",
+        "Monthly nutritional consultation",
+        "Recovery zone access (Cryotherapy & Massage)",
+        "Complimentary towel & laundry service",
+        "Reserved VIP parking"
+      ],
+      "is_popular": false,
+      "cta_text": "Join Pro"
+    }
+  ]
+}
