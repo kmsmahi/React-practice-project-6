@@ -2,8 +2,10 @@
 @import "tailwindcss";
 @plugin "daisyui";
 body {
+  max-width: 1200px;
+  margin: 0 auto;
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 700;
   font-style: normal;
 }
